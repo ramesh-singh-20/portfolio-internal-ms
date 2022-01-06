@@ -1,0 +1,17 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    username: root
+    password: Meshu@20
+    url: jdbc:mysql://localhost:3306/portfolio
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
+  profiles:
+    active: @spring.profiles.active@
