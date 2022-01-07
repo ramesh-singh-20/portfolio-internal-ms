@@ -1,2 +1,6 @@
-package com.alphacoder.domain.response;public enum ResponseStatus {
+package com.alphacoder.domain.response;
+
+public enum ResponseStatus {
+    SUCCESS,
+    ERROR
 }

@@ -35,6 +35,9 @@ public class PortfolioServiceImpl implements PortfolioService {
             for(Portfolio entity: portfolioEntityList){
                 response.add(portfolioMapper.mapPortfolioEntityToPortfolioResponse(entity));
             }
+        }else{
+            List<ErrorDto> errors = PortfolioUtil.getErrorDtos("Portfolio_1003", "No Data Found.");
+            throw new ApplicationDomainException(errors, HttpStatus.NOT_FOUND);
         }
         return response;
     }
@@ -64,9 +67,16 @@ public class PortfolioServiceImpl implements PortfolioService {
     @Override
     public void update(PortfolioRequest request) {
         log.info("Portfolio request: "+request);
-        Portfolio portfolio= portfolioMapper.mapPortfolioRequestToPortfolioEntity(request);
-        log.info("Portfolio Entity After Mapping: "+ portfolio);
-        portfolioRepository.save(portfolio);
+        if(null!= request.getId() && this.portfolioRepository.existsById(request.getId())){
+            Portfolio portfolio= portfolioMapper.mapPortfolioRequestToPortfolioEntity(request);
+            log.info("Portfolio Entity After Mapping: "+ portfolio);
+            portfolioRepository.save(portfolio);
+        }else{
+            List<ErrorDto> errors = PortfolioUtil.getErrorDtos("Portfolio_1001",
+                    "No data found. Please try again.");
+            throw new ApplicationDomainException(errors, HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @Override

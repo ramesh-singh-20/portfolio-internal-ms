@@ -1,15 +1,5 @@
 server:
-  port: 8082
+  port: 5000
 spring:
   datasource:
-    username: root
-    password: Meshu@20
-    url: jdbc:mysql://localhost:3306/portfolio
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: true
-    show-sql: true
+    url: jdbc:mysql://trading-journal.ceyxpbknadup.us-east-1.rds.amazonaws.com:3306/portfolio

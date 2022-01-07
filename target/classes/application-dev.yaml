@@ -1,5 +1,0 @@
-server:
-  port: 5000
-spring:
-  datasource:
-    url: jdbc:mysql://trading-journal.ceyxpbknadup.us-east-1.rds.amazonaws.com:3306/portfolio
