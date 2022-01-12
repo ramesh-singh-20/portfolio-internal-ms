@@ -12,3 +12,12 @@ spring:
     show-sql: true
   profiles:
     active: ${ENV}
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include:
+          - health
+          - info
