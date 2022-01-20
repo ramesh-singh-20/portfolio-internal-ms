@@ -1,8 +1,7 @@
 spring:
   datasource:
-    username: root
-    password: Meshu@20
-    url: jdbc:mysql://portfolio-internal-mysql-db/portfolio
+    username: ${database_username}
+    password: ${database_password}
   jpa:
     hibernate:
       ddl-auto: update
@@ -11,6 +10,8 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
     show-sql: true
+  profiles:
+    active: ${ENV}
 
 management:
   endpoints:
