@@ -14,4 +14,4 @@ run the app container: docker run -p 8085:8085 --name portfolio-internal-ms --li
 3. docker run --name portfolio-internal-mysql-db -p3308:3306 --network portfolio-internal-ms -e MYSQL_ROOT_PASSWORD=Meshu@20 -d mysql
 4. mvn clean install
 5. build your docker image: docker build . -t portfolio-internal-ms
-6. docker run --network portfolio-internal-ms --name portfolio-intenal-ms-container -p 8080:8080 -d portfolio-internal-ms
+6. docker run --network portfolio-internal-ms --name portfolio-internal-ms-container -p 8085:8085 -d portfolio-internal-ms
