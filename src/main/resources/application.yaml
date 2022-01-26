@@ -14,6 +14,8 @@ spring:
       show-sql: true
   profiles:
     active: ${ENV}
+  config:
+    import: configserver:${SPRING_CLOUD_CONFIG_URI:http://localhost:9196}
 
 management:
   endpoints:
